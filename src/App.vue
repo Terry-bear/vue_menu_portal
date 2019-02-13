@@ -1,36 +1,66 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
+  <div id="app" :class="classObj" class="app-wrapper">
+    <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
+    <sidebar class="sidebar-container"/>
+    <div class="main-container">
+
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {Sidebar} from './components'
+// import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
-  name: 'app',
+  name: 'Layout',
   components: {
-    HelloWorld
+    Sidebar
+  },
+  // mixins: [ResizeMixin],
+  computed: {
+    sidebar() {
+      return this.$store.state.app.sidebar
+    },
+    device() {
+      return this.$store.state.app.device
+    },
+    classObj() {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
+    }
+  },
+  methods: {
+    handleClickOutside() {
+      this.$store.dispatch('closeSideBar', { withoutAnimation: false })
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style rel="stylesheet/scss" lang="scss" scoped>
+  @import "./styles/mixin.scss";
+  .app-wrapper {
+    @include clearfix;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    &.mobile.openSidebar{
+      position: fixed;
+      top: 0;
+    }
+  }
+  .drawer-bg {
+    background: #000;
+    opacity: 0.3;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+  }
 </style>
