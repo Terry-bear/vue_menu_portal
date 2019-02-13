@@ -19,13 +19,6 @@
       "@/*": [
         "src/*"
       ]
-      // vue简写路径名称时在TS中的配置项
-      // "mixin/*":[
-      //   "src/projects/menu/mixin/*"
-      // ],
-      // "api/*":[
-      //   "src/projects/menu/graphql/*"
-      // ]
     },
     "lib": [
       "esnext",
