@@ -9,11 +9,6 @@ const getters = {
   createTime: (state: any) => state.user.createTime,
   email: (state: any) => state.user.email,
   roles: (state: any) => state.user.roles,
-  permission_routers: (state: any) => state.permission.routers,
-  addRouters: (state: any) => state.permission.addRouters,
-  socketApi: (state: any) => state.api.socketApi,
-  imagesUploadApi: (state: any) => state.api.imagesUploadApi,
-  updateAvatarApi: (state: any) => state.api.updateAvatarApi,
-  qiNiuUploadApi: (state: any) => state.api.qiNiuUploadApi
+  routers: (state: any) => state.ruters.projectRouters
 }
 export default getters
