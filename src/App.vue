@@ -34,6 +34,10 @@ export default {
       }
     }
   },
+  created() {
+    console.log('haha,这是初始化create')
+    console.log('this-->', this)
+  },
   methods: {
     handleClickOutside() {
       this.$store.dispatch('closeSideBar', { withoutAnimation: false })

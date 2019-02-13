@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import Screenfull from '@/components/Screenfull'
@@ -48,11 +48,11 @@ export default {
     Screenfull
   },
   computed: {
-    ...mapGetters([
-      'sidebar',
-      'avatar',
-      'device'
-    ])
+    // ...mapGetters([
+    //   'sidebar',
+    //   'avatar',
+    //   'device'
+    // ])
   },
   methods: {
     toggleSideBar() {

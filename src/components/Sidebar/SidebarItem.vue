@@ -43,7 +43,7 @@ import AppLink from './Link'
 export default {
   name: 'SidebarItem',
   components: { Item, AppLink },
-  mixins: [FixiOSBug],
+  // mixins: [FixiOSBug],
   props: {
     // route object
     item: {
