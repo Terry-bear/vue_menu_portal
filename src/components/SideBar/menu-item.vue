@@ -3,6 +3,8 @@
     <div class="sidebar-leader-wrapper">
       <span style="color:#fff;">产品与服务</span>
     </div>
+    <draggable v-model="dataList">
+      <transition-group>
     <ul class="sidebar-group" v-for="{name, title, url, id, icon} in dataList" :key="id">
       <li class="sidebar-group-items">
         <div class="sidebar-mask">
@@ -17,11 +19,18 @@
         </div>
       </li>
     </ul>
+    </transition-group>
+    </draggable>
   </div>
 </template>
 <script lang="ts">
+import draggable from 'vuedraggable'
 import { Vue, Component, Watch, Prop, Model, Provide, Inject } from 'vue-property-decorator'
-@Component({})
+@Component({
+  components: {
+    draggable
+  }
+})
 export default class MenuItem extends Vue {
   public data() {
     return {
