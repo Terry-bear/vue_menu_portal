@@ -1,16 +1,16 @@
 <template>
   <div class="sidebar-items-wrapper">
-    <ul class="sidebar-group" v-for="{name, title, url, id} in dataList" :key="id">
+    <ul class="sidebar-group" v-for="{name, title, url, id, icon} in dataList" :key="id">
       <li class="sidebar-group-items">
         <div class="sidebar-mask">
-        <svg-icon iconClass="bk-box" style="width:18px; height:18px;"></svg-icon>
+        <svg-icon :iconClass="icon" style="width:18px; height:18px;"></svg-icon>
         <span>
         <a class="sidebar-item-link" :title="title" :href="url">
           <span v-html="name"></span>
         </a>
         </span>
-        <svg-icon iconClass="close" style="width:15px; height:15px;margin-right:5px;"></svg-icon>
-        <svg-icon iconClass="order" style="width:15px; height:15px;"></svg-icon>
+        <svg-icon class="close-status" iconClass="close" style="width:15px; height:15px;margin-right:5px;"></svg-icon>
+        <svg-icon class="order-status" iconClass="order" style="width:15px; height:15px;"></svg-icon>
         </div>
       </li>
     </ul>
@@ -26,32 +26,38 @@ export default class MenuItem extends Vue {
         name: '流浪地球',
         title: '流浪地球title',
         url: 'www.baidu.com',
-        id: '11233543'
+        id: '11233543',
+        icon: '1'
       }, {
         name: '飞驰人生',
         title: '流浪地球title',
         url: 'www.baidu.com',
-        id: '112337656'
+        id: '112337656',
+        icon: '2'
       }, {
         name: '疯狂的外星人',
         title: '疯狂的外星人title',
         url: 'www.baidu.com',
-        id: '11236781'
+        id: '11236781',
+        icon: '3'
       }, {
         name: '一出好戏',
         title: '一出好戏title',
         url: 'www.baidu.com',
-        id: '11238901'
+        id: '11238901',
+        icon: '4'
       }, {
         name: '阿甘正传',
         title: '阿甘正传title',
         url: 'www.baidu.com',
-        id: '11267891'
+        id: '11267891',
+        icon: '5'
       }, {
         name: '当幸福来敲门',
         title: '当幸福来敲门title',
         url: 'www.baidu.com',
-        id: '1167896'
+        id: '1167896',
+        icon: '6'
       }]
     }
   }
@@ -111,6 +117,14 @@ export default class MenuItem extends Vue {
       height: 40px;
       :hover{
         background-color: #001528;
+      }
+    }
+
+    // 关闭按钮样式
+    .close-status{
+      color: #ff4b4b;
+      :hover{
+        cursor: pointer;
       }
     }
   }
