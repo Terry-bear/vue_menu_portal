@@ -1,26 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-    </div>
-    <ApolloExample msg="Welcome to Your Vue.js App"/>
+    <transition mode="out-in" name="fade">
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
 <script>
-import ApolloExample from './components/ApolloExample.vue'
 
 export default {
-  name: 'app',
-  components: {
-    ApolloExample
-  }
+  name: 'app'
 }
 </script>
 
