@@ -1,5 +1,8 @@
 <template>
   <div class="sidebar-items-wrapper">
+    <div class="sidebar-leader-wrapper">
+      <span style="color:#fff;">产品与服务</span>
+    </div>
     <ul class="sidebar-group" v-for="{name, title, url, id, icon} in dataList" :key="id">
       <li class="sidebar-group-items">
         <div class="sidebar-mask">
@@ -25,37 +28,37 @@ export default class MenuItem extends Vue {
       dataList: [{
         name: '流浪地球',
         title: '流浪地球title',
-        url: 'www.baidu.com',
+        url: '#1',
         id: '11233543',
         icon: '1'
       }, {
         name: '飞驰人生',
         title: '流浪地球title',
-        url: 'www.baidu.com',
+        url: '#2',
         id: '112337656',
         icon: '2'
       }, {
         name: '疯狂的外星人',
         title: '疯狂的外星人title',
-        url: 'www.baidu.com',
+        url: '#3',
         id: '11236781',
         icon: '3'
       }, {
         name: '一出好戏',
         title: '一出好戏title',
-        url: 'www.baidu.com',
+        url: '#4',
         id: '11238901',
         icon: '4'
       }, {
         name: '阿甘正传',
         title: '阿甘正传title',
-        url: 'www.baidu.com',
+        url: '#5',
         id: '11267891',
         icon: '5'
       }, {
         name: '当幸福来敲门',
         title: '当幸福来敲门title',
-        url: 'www.baidu.com',
+        url: '#6',
         id: '1167896',
         icon: '6'
       }]
@@ -101,6 +104,7 @@ export default class MenuItem extends Vue {
         color: #fff;
         font-size: 12px;
         padding-right: 8px;
+        user-select:none;
         &:hover{
           color: #00c1de;
         }
