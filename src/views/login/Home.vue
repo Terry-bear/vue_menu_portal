@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <svg-icon iconClass="user" style="width:35px; height:35px;"></svg-icon>
   </div>
 </template>
 
