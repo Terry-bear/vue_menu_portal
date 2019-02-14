@@ -9,17 +9,17 @@
       </p>
       <el-button>el-button</el-button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ApolloExample msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ApolloExample from './components/ApolloExample.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    ApolloExample
   }
 }
 </script>

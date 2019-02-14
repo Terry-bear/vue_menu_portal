@@ -18,6 +18,12 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "mixin/*":[
+        "src/projects/menu/mixin/*"
+      ],
+      "api/*":[
+        "src/projects/menu/graphql/*"
       ]
     },
     "lib": [
@@ -28,6 +34,7 @@
     ]
   },
   "include": [
+    "src/**/*.gql",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
