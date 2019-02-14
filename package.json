@@ -9,7 +9,9 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "apollo-link-http": "^1.5.11",
     "element-ui": "^2.4.5",
+    "unfetch": "^4.0.1",
     "vue": "^2.5.22",
     "vue-apollo": "^3.0.0-beta.11",
     "vue-class-component": "^6.0.0",
