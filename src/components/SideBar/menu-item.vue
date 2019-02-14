@@ -76,7 +76,8 @@ export default class MenuItem extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '~@/styles/mixin.scss';
 // ul-li标签处理
   .sidebar-group{
     list-style: none;
@@ -121,24 +122,26 @@ export default class MenuItem extends Vue {
     }
     // li样式
     .sidebar-group-items{
-      :hover{
+      &:hover{
         background-color: #001528;
       }
     }
     .sidebar-mask{
       width: 230px;
       height: 40px;
-      :hover{
+      &:hover{
         background-color: #001528;
       }
     }
 
     // 关闭按钮样式
     .close-status{
-      color: #ff4b4b;
-      :hover{
-        cursor: pointer;
-      }
+      @include iconStyle(pointer);
+    }
+    // 拖动按钮样式
+    .order-status{
+      margin-left: 5px;
+      @include iconStyle(move);
     }
   }
 </style>

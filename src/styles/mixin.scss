@@ -1,0 +1,7 @@
+@mixin iconStyle($mouseHover) {
+  opacity: 0.3;
+  &:hover{
+    cursor: $mouseHover;
+    opacity: 1;
+  }
+}
