@@ -1,85 +1,31 @@
 <template>
   <div id="app">
-    <div
-      :class="classObj"
-      class="app-wrapper"
-    >
-      <div
-        v-if="device==='mobile'&&sidebar.opened"
-        class="drawer-bg"
-        @click="handleClickOutside"
-      />
-      <sidebar class="sidebar-container" />
-      <div class="main-container">
-        hahaha
-      </div>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
     </div>
+    <router-view/>
   </div>
 </template>
 
-<script>
-import { Sidebar } from './components'
-import ResizeMixin from './mixin/ResizeHandler'
-
-export default {
-  name: 'Layout',
-  components: {
-    Sidebar
-  },
-  mixins: [ResizeMixin],
-  computed: {
-    sidebar() {
-      return this.$store.state.app.sidebar
-    },
-    device() {
-      return this.$store.state.app.device
-    },
-    classObj() {
-      return {
-        hideSidebar: !this.sidebar.opened,
-        openSidebar: this.sidebar.opened,
-        withoutAnimation: this.sidebar.withoutAnimation,
-        mobile: this.device === 'mobile'
-      }
-    }
-  },
-  created() {
-    console.log('haha,这是初始化create')
-    console.log('this-->', this)
-  },
-  methods: {
-    handleClickOutside() {
-      this.$store.dispatch('closeSideBar', { withoutAnimation: false })
-    }
-  }
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
-</script>
-
-<style rel="stylesheet/scss" lang="scss" scoped>
-@import "./styles/mixin.scss";
-
-.sidebar-container{
-  width: 100%;
-  height: 100%;
-  background-color: #f0f;
+#nav {
+  padding: 30px;
 }
-.app-wrapper {
-  @include clearfix;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  &.mobile.openSidebar {
-    position: fixed;
-    top: 0;
-  }
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
-.drawer-bg {
-  background: #000;
-  opacity: 0.3;
-  width: 100%;
-  top: 0;
-  height: 100%;
-  position: absolute;
-  z-index: 999;
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

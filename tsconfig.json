@@ -28,7 +28,6 @@
     ]
   },
   "include": [
-    "src/**/*.gql",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",

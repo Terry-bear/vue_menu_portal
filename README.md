@@ -1,2 +1,26 @@
-# vue_menu_protal
-基于vue的仿阿里云菜单样式
+# menu_vue
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+### Compiles and minifies for production
+```
+yarn run build
+```
+
+### Lints and fixes files
+```
+yarn run lint
+```
+
+### Run your unit tests
+```
+yarn run test:unit
+```
