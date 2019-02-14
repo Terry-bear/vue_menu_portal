@@ -64,7 +64,8 @@ export default class MenuItem extends Vue {
     list-style: none;
     font-size: 12px;
     color: #fff;
-    padding-left: 10px;
+    padding-left: 0px;
+    margin: 0;
     width: 210px;
     .svg-icon{
       width: 50px;
@@ -90,7 +91,7 @@ export default class MenuItem extends Vue {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        line-height: 21px;
+        line-height: 40px;
         color: #fff;
         font-size: 12px;
         padding-right: 8px;
@@ -106,6 +107,8 @@ export default class MenuItem extends Vue {
       }
     }
     .sidebar-mask{
+      width: 230px;
+      height: 40px;
       :hover{
         background-color: #001528;
       }
