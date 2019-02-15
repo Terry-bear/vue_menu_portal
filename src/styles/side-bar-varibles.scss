@@ -3,9 +3,9 @@
 #app {
   // 侧边栏
   .sidebar-container {
-    transition: width 0.88s;
-    // width: 50px !important;
-    width: 230px !important;
+    transition: all 0.5s ease-in-out;
+    width: 50px !important;
+    // width: 230px !important;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -17,8 +17,9 @@
     background-color: $subMenuBg !important;
     &:hover {
       //   background-color: $menuHover !important;
-        // min-width: 230px !important;
-      transition: all 0.5s ease-in-out;
+      min-width: 50px !important;
+      width: 230px !important;
+      transition: all 0.5s;
     }
   }
   .sidebar-list {
