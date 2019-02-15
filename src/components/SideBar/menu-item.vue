@@ -7,15 +7,15 @@
       <transition-group>
     <ul class="sidebar-group" v-for="{name, title, url, id, icon} in dataList" :key="id">
       <li class="sidebar-group-items">
-        <div class="sidebar-mask">
+        <div class="sidebar-mask" @mouseenter="selectbtn(id)" @mouseleave="canclebtn">
         <svg-icon :iconClass="icon" style="width:18px; height:18px;"></svg-icon>
         <span>
         <a class="sidebar-item-link" :title="title" :href="url">
           <span v-html="name"></span>
         </a>
         </span>
-        <svg-icon class="close-status" iconClass="close" style="width:15px; height:15px;margin-right:5px;"></svg-icon>
-        <svg-icon class="order-status" iconClass="order" style="width:15px; height:15px;"></svg-icon>
+        <svg-icon :class="{'close-status':true, 'close-status--active': closeIconActiveId === id}" iconClass="close" style="width:15px; height:15px;margin-right:5px;"></svg-icon>
+        <svg-icon :class="{'order-status':true, 'order-status--active': closeIconActiveId === id}" iconClass="order" style="width:15px; height:15px;"></svg-icon>
         </div>
       </li>
     </ul>
@@ -32,8 +32,10 @@ import { Vue, Component, Watch, Prop, Model, Provide, Inject } from 'vue-propert
   }
 })
 export default class MenuItem extends Vue {
+  private closeIconActiveId!: string
   public data() {
     return {
+      closeIconActiveId: '',
       dataList: [{
         name: '流浪地球',
         title: '流浪地球title',
@@ -72,6 +74,19 @@ export default class MenuItem extends Vue {
         icon: '6'
       }]
     }
+  }
+  /**
+   * selectbtn
+   */
+  public selectbtn(id: any) {
+    this.closeIconActiveId = id
+    console.log('selectbtn', id)
+  }
+  /**
+   * canclebtn
+   */
+  public canclebtn() {
+    this.closeIconActiveId = ''
   }
 }
 </script>
@@ -136,11 +151,18 @@ export default class MenuItem extends Vue {
 
     // 关闭按钮样式
     .close-status{
+      opacity: 0;
+    }
+    // 隐藏icon样式
+    .close-status--active{
       @include iconStyle(pointer);
     }
     // 拖动按钮样式
     .order-status{
+      opacity: 0;
       margin-left: 5px;
+    }
+    .order-status--active{
       @include iconStyle(move);
     }
   }
