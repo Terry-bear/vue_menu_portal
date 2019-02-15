@@ -120,7 +120,6 @@ export default class MenuItem extends Vue {
    */
   public selectbtn(id: any) {
     this.closeIconActiveId = id
-    console.log('selectbtn', id)
   }
   /**
    * canclebtn

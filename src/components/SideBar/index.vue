@@ -6,15 +6,20 @@
           <menu-item/>
         </div>
       </div>
+      <div class="submenu-wrapper">
+        <sub-menu/>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Watch, Prop, Model, Provide, Inject } from 'vue-property-decorator'
 import MenuItem from './menu-item.vue'
+import SubMenu from './sub-menu.vue'
 @Component({
   components: {
-    MenuItem
+    MenuItem,
+    SubMenu
   }
 })
 export default class Index extends Vue {
