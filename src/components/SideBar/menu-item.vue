@@ -13,14 +13,14 @@
         ></svg-icon>
       </div>
     </div>
-    <draggable v-model="dataList">
+    <draggable v-model="stateDataList">
       <transition-group>
         <ul
           class="sidebar-group"
-          v-for="{name, title, url, id, icon} in dataList"
+          v-for="{name, title, url, id, icon, status} in stateDataList"
           :key="id"
         >
-          <li class="sidebar-group-items">
+          <li class="sidebar-group-items" v-if="status">
             <div
               class="sidebar-mask"
               @mouseenter="selectbtn(id)"
@@ -59,61 +59,22 @@
 <script lang="ts">
 import draggable from 'vuedraggable'
 import {Vue, Component, Watch, Prop, Model, Provide, Inject} from 'vue-property-decorator'
+import { State, Getter, Action, Mutation} from 'vuex-class'
 @Component({
   components: {
     draggable
   }
 })
 export default class MenuItem extends Vue {
+  @State('dataList') public stateDataList: any
   private closeIconActiveId!: string
   public data() {
     return {
-      closeIconActiveId: '',
-      dataList: [
-        {
-          name: '流浪地球',
-          title: '流浪地球title',
-          url: '#1',
-          id: '11233543',
-          icon: '1'
-        },
-        {
-          name: '飞驰人生',
-          title: '流浪地球title',
-          url: '#2',
-          id: '112337656',
-          icon: '2'
-        },
-        {
-          name: '疯狂的外星人',
-          title: '疯狂的外星人title',
-          url: '#3',
-          id: '11236781',
-          icon: '3'
-        },
-        {
-          name: '一出好戏',
-          title: '一出好戏title',
-          url: '#4',
-          id: '11238901',
-          icon: '4'
-        },
-        {
-          name: '阿甘正传',
-          title: '阿甘正传title',
-          url: '#5',
-          id: '11267891',
-          icon: '5'
-        },
-        {
-          name: '当幸福来敲门',
-          title: '当幸福来敲门title',
-          url: '#6',
-          id: '1167896',
-          icon: '6'
-        }
-      ]
+      closeIconActiveId: ''
     }
+  }
+  public created() {
+   console.log(this.stateDataList)
   }
   /**
    * selectbtn
