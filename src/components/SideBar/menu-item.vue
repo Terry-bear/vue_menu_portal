@@ -13,11 +13,11 @@
         ></svg-icon>
       </div>
     </div>
-    <draggable v-model="stateDataList">
+    <draggable v-model="dataList">
       <transition-group>
         <ul
           class="sidebar-group"
-          v-for="({name, title, url, id, icon, status}, index) in stateDataList"
+          v-for="({name, title, url, id, icon, status}, index) in dataList"
           :key="id"
         >
           <li class="sidebar-group-items" v-if="status">
@@ -76,6 +76,14 @@ export default class MenuItem extends Vue {
       closeIconActiveId: ''
     }
   }
+  public get dataList() {
+    return this.stateDataList
+  }
+
+  public set dataList(v: string) {
+    (this as any).$store.commit('setDataListOrder', v)
+  }
+
   public created() {
    console.log(this.stateDataList)
   }

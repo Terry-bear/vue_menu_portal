@@ -88,6 +88,14 @@ export default new Vuex.Store({
      */
     setDataListStatus(state: any, payload: number) {
       state.dataList[payload].status = !state.dataList[payload].status
+    },
+
+    /**
+     * 设置左侧菜单排序
+     */
+    setDataListOrder(state: any, payload: number) {
+      console.table(state.dataList)
+      console.table(payload)
     }
   },
   actions: {
