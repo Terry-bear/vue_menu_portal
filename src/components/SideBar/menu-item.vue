@@ -17,7 +17,7 @@
       <transition-group>
         <ul
           class="sidebar-group"
-          v-for="{name, title, url, id, icon, status} in stateDataList"
+          v-for="({name, title, url, id, icon, status}, index) in stateDataList"
           :key="id"
         >
           <li class="sidebar-group-items" v-if="status">
@@ -39,11 +39,13 @@
                   <span v-html="name"></span>
                 </a>
               </span>
+              <label @click="delBtn(index)">
               <svg-icon
                 :class="{'close-status':true, 'close-status--active': closeIconActiveId === id}"
                 iconClass="close"
                 style="width:15px; height:15px;margin-right:5px;"
               ></svg-icon>
+              </label>
               <svg-icon
                 :class="{'order-status':true, 'order-status--active': closeIconActiveId === id}"
                 iconClass="order"
@@ -67,6 +69,7 @@ import { State, Getter, Action, Mutation} from 'vuex-class'
 })
 export default class MenuItem extends Vue {
   @State('dataList') public stateDataList: any
+  @Mutation('setDataListStatus') public setDataListStatus: any
   private closeIconActiveId!: string
   public data() {
     return {
@@ -87,6 +90,9 @@ export default class MenuItem extends Vue {
    */
   public canclebtn() {
     this.closeIconActiveId = ''
+  }
+  public delBtn(index: number) {
+    this.setDataListStatus(index)
   }
 }
 </script>

@@ -81,9 +81,13 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    setDataListStatus(state: any, payload: any) {
-      console.log(state)
-      console.log(payload)
+    /**
+     * 设置可选菜单状态
+     * @param state dataList
+     * @param payload index
+     */
+    setDataListStatus(state: any, payload: number) {
+      state.dataList[payload].status = !state.dataList[payload].status
     }
   },
   actions: {

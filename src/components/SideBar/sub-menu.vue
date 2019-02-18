@@ -16,7 +16,7 @@
       <div class="arr-info-wrapper">
         <div
           class="arr-groups"
-          v-for="({name, id, title, url, status}, index) in stateDataList"
+          v-for="({name, id, title, url, status}, index) in dataList"
           :key="id"
         >
           <div class="arr-items">
@@ -54,11 +54,16 @@ export default class SubMenu extends Vue {
       searchInput: ''
     }
   }
+
+  public get dataList(): any[] {
+    return this.stateDataList
+  }
+
   /**
    * starStatusChange
    */
   public starStatusChange(index: number) {
-    (this as any).dataList[index].status = !(this as any).dataList[index].status
+    this.setDataListStatus(index)
   }
 }
 </script>
