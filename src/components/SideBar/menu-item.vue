@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-items-wrapper">
     <div class="sidebar-leader-wrapper">
-      <div class="sidebar-heading">
+      <div class="sidebar-heading" @mouseenter="setSubMenu(true)" @mouseleave="setSubMenu(false)">
         <svg-icon
           iconClass="0"
           style="width:18px; height:18px;"
@@ -69,7 +69,9 @@ import { State, Getter, Action, Mutation} from 'vuex-class'
 })
 export default class MenuItem extends Vue {
   @State('dataList') public stateDataList: any
+  @State('subMenuStatus') public subMenuStatus!: boolean
   @Mutation('setDataListStatus') public setDataListStatus: any
+  @Mutation('setSubMenu') public setSubMenu: any
   private closeIconActiveId!: string
   public data() {
     return {

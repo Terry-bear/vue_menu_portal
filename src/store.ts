@@ -3,8 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// 防抖时间
+let timer: NodeJS.Timeout
 export default new Vuex.Store({
   state: {
+    subMenuStatus: true,
     dataList: [
       {
         name: '流浪地球',
@@ -96,6 +99,15 @@ export default new Vuex.Store({
     setDataListOrder(state: any, payload: number) {
       console.table(state.dataList)
       console.table(payload)
+    },
+    setSubMenu(state: any, paylaod: boolean) {
+      if (timer) {
+        clearTimeout(timer)
+      }
+      timer = setTimeout(() => {
+        state.subMenuStatus = paylaod
+      }, 300)
+
     }
   },
   actions: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="slideInRight-enter">
+    <div class="slideInLeft-enter">
       <div class="search-box">
         <svg-icon
           iconClass="search"
