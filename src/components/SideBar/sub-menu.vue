@@ -4,12 +4,14 @@
       <div class="search-box">
         <svg-icon
           iconClass="search"
-          style="width:20px; height:20px;"
+          style="width:20px; height:20px; margin: -3px 5px;"
         ></svg-icon>
         <el-input
           placeholder="请输入内容"
           v-model="searchInput"
           clearable
+          size="small"
+          style="width: calc( 100% - 50px);"
         >
         </el-input>
       </div>
@@ -74,6 +76,7 @@ export default class SubMenu extends Vue {
   display: inline-block;
   height: 40px;
   width: 100%;
+  line-height: 40px;
 }
 
 .star-wrapper{
