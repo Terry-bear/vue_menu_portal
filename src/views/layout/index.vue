@@ -11,7 +11,7 @@ import { Vue, Component, Watch, Prop, Model, Provide, Inject } from 'vue-propert
     SideBar
   }
 })
-export default class About extends Vue {
+export default class Layout extends Vue {
 
 }
 </script>
